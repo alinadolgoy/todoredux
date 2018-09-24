@@ -1,18 +1,38 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import List from './components/List/List';
+import Form from './components/Form/Form';
+
+
+const ToDoArr = [];
+
+const add = () => {
+
+}
+
+const edit = () => {
+
+}
+
+const del = () => {
+
+}
+
+const bttns = [
+{ btname: 'add', btfunc : add },
+{ btname: 'edit', btfunc: edit },
+{ btname: 'delete', btfunc: del }
+];
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <div className="appContainer">
+          <h1> To Do List App</h1>
+           <Form name='toDoList' placeholder='To Do' bttns={bttns} />
+            <List  />
+        </div>
       </div>
     );
   }
