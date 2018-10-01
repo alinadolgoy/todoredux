@@ -8,16 +8,16 @@ class App extends Component {
 constructor(props){
   super(props);
   this.state = {
-    toDoList : ["buy milk", "finish book", "walk dog"]
+    toDoList : ["buy milk", "finish book", "walk dogs"]
   }
   this.addToDo = this.addToDo.bind(this);
   this.addHandler = this.addHandler.bind(this);
 }
 
 addToDo (newItemAdded){
-  this.setState((state) => {
-  state.toDoList.push(newItemAdded);
-});
+  this.setState({
+   toDoList: this.state.toDoList.concat(newItemAdded)
+  });
 }
 
 addHandler (newItem) {
