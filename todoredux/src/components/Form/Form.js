@@ -14,12 +14,13 @@ class Form extends Component {
     }
 
     handleChange(event) {
-        this.setState({ newToDO: event.target.value });
+        this.setState({ newToDo: event.target.value });
     }
 
      handleSubmit (event) {
          event.preventDefault();
          console.log(this.state.newToDo);
+         this.props.addHandlerFunc(this.state.newToDo);
     } 
   
 
