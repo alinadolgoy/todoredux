@@ -7,7 +7,7 @@ class ListItem extends Component {
     render() {
         return(
             <div className='list-item-container'>
-            <span id="toDo">to do item 1</span>
+            <span id="toDo">{this.props.toDoText}</span>
             <Button name='Edit' />
             <Button name='Delete' />  
 
