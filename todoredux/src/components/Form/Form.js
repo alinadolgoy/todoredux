@@ -3,11 +3,23 @@ import Button from '../../components/Button/Button.js';
 import './Form.css';
 
 class Form extends Component {
-    
+    constructor (props) {
+        super(props);
+        this.state = {
+            newToDo : 'test'
+            
+        }
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange(event) {
+        this.setState({ newToDO: event.target.value });
+    }
+
      handleSubmit (event) {
          event.preventDefault();
-        console.log(event.target.value);
-        this.props.addHandlerFunc(event.target.value);
+         console.log(this.state.newToDo);
     } 
   
 
@@ -15,8 +27,8 @@ class Form extends Component {
        
         return (
             <form onSubmit={this.handleSubmit}>
-            <input type='text' onChange={this.handleChange} />
-            <button type='submit' value='Add' />              
+                <input type='text'  onChange={this.handleChange}></input>
+                <button type='submit'> Add </button>              
             </form> 
         );
     }
@@ -24,5 +36,4 @@ class Form extends Component {
 
 export default Form;
 
-//<Button name='Add' onClickFunc={this.props.addHandlerFunc} newToDoValue={"new"} />
 
