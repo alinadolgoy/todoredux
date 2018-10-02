@@ -11,7 +11,7 @@ class Form extends Component {
         return (
             <form onSubmit={(event) => {
                 event.preventDefault(); 
-                return          this.props.addHandlerFunc(textInput.value);
+                return this.props.addHandlerFunc(textInput.value);
 
             }}>
                 <input ref={ node => textInput = node} type='text'></input>
