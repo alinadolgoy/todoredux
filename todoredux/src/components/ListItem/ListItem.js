@@ -4,12 +4,14 @@ import './ListItem.css';
 
 
 class ListItem extends Component {
+    
+
     render() {
         return(
             <div className='list-item-container'>
             <span id="toDo">{this.props.toDoText}</span>
             <Button name='Edit' />
-            <Button name='Delete' />  
+            <Button name='Delete' onclickAction={this.props.onClickAction} key={this.props.key}/>  
 
             </div>
         );
@@ -17,3 +19,5 @@ class ListItem extends Component {
 }
 
 export default ListItem;
+
+//

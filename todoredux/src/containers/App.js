@@ -25,6 +25,15 @@ addHandler (newItem) {
   this.addToDo(newItem);
 }
 
+deleteToDo (item) {
+  this.setState({
+    toDoList: this.state.toDoList.splice(item, 1)
+  })
+}
+
+deleteAction (key) {
+  this.deleteToDo(key);
+}
 
 
   render() {
@@ -33,7 +42,7 @@ addHandler (newItem) {
         <div className="appContainer">
           <h1> To Do List App</h1>
             <Form name='toDoList' placeholder='To Do' addHandlerFunc={this.addHandler}/>
-            <List  toDoList={this.state.toDoList} />
+            <List  toDoList={this.state.toDoList} deleteAction={deleteAction}/>
         </div>
       </div>
     );
