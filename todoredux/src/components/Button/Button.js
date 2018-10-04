@@ -1,17 +1,16 @@
 import React, { Component } from 'react';
 import './Button.css';
 
-class Button extends Component {
-     onclickAction = () => {
-        return this.props.onClickAction(this.props.key);
+const Button = (props) => {
+   const onClickAction = () => {
+        return props.onClickAction(props.index);
     }
-    render () {
         return (
             <div>
-                <button onClick={onClickAction}> {this.props.name} </button>
+                <button onClick={onClickAction}> {props.name} </button>
             </div>
         );
-    }
+    
 }
 
 export default Button;
