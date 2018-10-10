@@ -12,6 +12,8 @@ constructor(props){
   }
   this.addToDo = this.addToDo.bind(this);
   this.addHandler = this.addHandler.bind(this);
+  this.deleteToDo = this.deleteToDo.bind(this);
+  this.deleteAction = this.deleteAction.bind(this);
 }
 
 addToDo (newItemAdded){
@@ -25,15 +27,25 @@ addHandler (newItem) {
   this.addToDo(newItem);
 }
 
+deleteToDo (item) {
+  this.setState({
+    toDoList: this.state.toDoList.splice(item, 1)
+  })
+}
+
+deleteAction (index) {
+  this.deleteToDo(index);
+}
 
 
   render() {
     return (
+
       <div className="App">
         <div className="appContainer">
           <h1> To Do List App</h1>
             <Form name='toDoList' placeholder='To Do' addHandlerFunc={this.addHandler}/>
-            <List  toDoList={this.state.toDoList} />
+            <List  toDoList={this.state.toDoList} deleteAction={this.deleteAction}/>
         </div>
       </div>
     );
