@@ -4,7 +4,7 @@ import ListItem from '../ListItem/ListItem';
 
 const List = (props) => {
     const toDoItems = props.toDoList.map((item, index) => {
-        return <ListItem key={index} index={index} toDoText={item} onClickAction={props.deleteAction} />
+        return <ListItem key={index} index={index} toDoText={item.text} toDoDone={item.done} onClickAction={props.deleteAction} toggleAction={props.toggleAction} />
     });
 
         return (

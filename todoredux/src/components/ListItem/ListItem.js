@@ -7,15 +7,34 @@ const ListItem = (props) => {
         props.onClickAction;
     }
 
+    const toggleAction = () => {
+        props.toggleAction(props.index);
+    }
+
+    let doneStyle = {color: 'red'};
+
+    const isToDoDoneCheck = () => {
+        if (props.toDoDone) {
+            doneStyle = {textDecorationLine : 'line-through'};
+        }
+        else {
+            doneStyle = {textDecorationLine : "none"};
+        }
+        return doneStyle;
+    }
+
+    isToDoDoneCheck();
+
+   
+
     return (
     <div className='list-item-container'>
-        <span id="toDo">{props.toDoText}</span>
-        <Button name='Edit' />
-        <Button name='Delete' onClickAction={delAction} key={props.index}/>  
+        <span id="toDo" style={doneStyle} onClick={toggleAction}> {props.toDoText}</span>
+        <Button name='Delete' onClickAction={delAction} itemIndex={props.index}/>  
     </div>
     );
 }
 
 export default ListItem;
 
-//
+//toggleAction
