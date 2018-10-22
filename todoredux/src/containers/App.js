@@ -19,12 +19,14 @@ constructor(props){
       {
         text: "walk dogs",
         done: false}
-    ]
+    ], 
   }
   this.addToDo = this.addToDo.bind(this);
   this.addHandler = this.addHandler.bind(this);
   this.deleteToDo = this.deleteToDo.bind(this);
   this.deleteAction = this.deleteAction.bind(this);
+  this.toggleToDo = this.toggleToDo.bind(this);
+  this.toggleAction = this.toggleAction.bind(this);
 }
 
 addToDo (newItemAdded){
@@ -42,9 +44,11 @@ addHandler (newItem) {
   this.addToDo(newItem);
 }
 
-deleteToDo (item) {
+deleteToDo (i) {
+  let ogArray = this.state.toDoList;
+  let newArray = ogArray.splice(i,1);
   this.setState({
-    toDoList: this.state.toDoList.splice(item, 1)
+    toDoList: ogArray
   })
 }
 
@@ -52,9 +56,16 @@ deleteAction (index) {
   this.deleteToDo(index);
 }
 
-toggleToDo (item) {
-  this.setState({
-    toDoList: this.state.toDoList.done = true  })
+toggleToDo (index) {
+  this.setState((state, props) => { 
+    let newToDoArray =  state.toDoList.map((item, i) => {
+      if (i === index) {
+         state.toDoList[i].done = !state.toDoList[i].done;
+      }
+      
+    });
+    return newToDoArray;  
+  })
 }
 
 toggleAction (index) {

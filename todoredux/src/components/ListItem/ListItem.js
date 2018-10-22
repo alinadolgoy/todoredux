@@ -4,10 +4,10 @@ import './ListItem.css';
 
 const ListItem = (props) => {
     const delAction = () => {
-        props.onClickAction;
+        props.onClickAction();
     }
 
-    const toggleAction = () => {
+    const toggleAction1 = () => {
         props.toggleAction(props.index);
     }
 
@@ -29,7 +29,7 @@ const ListItem = (props) => {
 
     return (
     <div className='list-item-container'>
-        <span id="toDo" style={doneStyle} onClick={toggleAction}> {props.toDoText}</span>
+        <span id="toDo" style={doneStyle} onClick={toggleAction1}> {props.toDoText}</span>
         <Button name='Delete' onClickAction={delAction} itemIndex={props.index}/>  
     </div>
     );
@@ -37,4 +37,3 @@ const ListItem = (props) => {
 
 export default ListItem;
 
-//toggleAction
