@@ -6,6 +6,8 @@ margin: 0 30% auto 30%;
 border: 1.5px solid black;
 display: flex;
 flex-direction: column;
+padding-left: 25px;
+
 }
 
 h1 {

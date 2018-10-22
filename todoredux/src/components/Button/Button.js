@@ -3,7 +3,7 @@ import './Button.css';
 
 const Button = (props) => {
    const onClickAction = () => {
-        return props.onClickAction(props.index);
+            return props.onClickAction(props.itemIndex);
     }
         return (
             <div>
